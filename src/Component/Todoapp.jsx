@@ -14,7 +14,7 @@ const Todoapp = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/Todo/todos');
+            const response = await axios.get('https://todo-1l5g.onrender.com/Todo/todos');
             setTodos(response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -23,7 +23,7 @@ const Todoapp = () => {
 
     const addTodo = async () => {
         try {
-            await axios.post('http://localhost:3000/Todo/todos', {
+            await axios.post('https://todo-1l5g.onrender.com/Todo/todos', {
                 description: newTodoDescription,
                 status: newTodoStatus,
             });
@@ -37,7 +37,7 @@ const Todoapp = () => {
 
     const deleteTodo = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/Todo/todos/${id}`);
+            await axios.delete(`https://todo-1l5g.onrender.com/Todo/todos/${id}`);
             fetchData();
         } catch (error) {
             console.error('Error deleting todo:', error);
@@ -47,7 +47,7 @@ const Todoapp = () => {
     const toggleStatus = async (id, currentStatus) => {
         try {
             const newStatus = currentStatus === 'ongoing' ? 'completed' : 'ongoing';
-            await axios.put(`http://localhost:3000/Todo/todos/${id}`, { status: newStatus });
+            await axios.put(`https://todo-1l5g.onrender.com/Todo/todos/${id}`, { status: newStatus });
             fetchData();
         } catch (error) {
             console.error('Error updating todo status:', error);
